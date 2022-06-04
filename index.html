@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="css/styles.css" rel="stylesheet">
+	<script src="js/jquery.min.js"></script>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Ludo</title>
+
+
+	<!-- Chrome for Android web app tags -->
+	<meta name="mobile-web-app-capable" content="yes" />
+</head>
+
+<body>
+
+
+
+	<div class="game">
+
+
+
+		<div class="home"></div>
+
+
+
+
+		<audio class="sound" id="dice" controls>
+			<source src="js/ddic.ogg">
+			</source>
+		</audio>
+		<audio class="sound" id="mo1" controls>
+			<source src="js/move.ogg">
+			</source>
+		</audio>
+		<audio class="sound" id="tw" controls>
+			<source src="js/tw.ogg">
+			</source>
+		</audio>
+		<audio class="sound" id="done" controls>
+			<source src="js/done.ogg">
+			</source>
+		</audio>
+		<audio class="sound" id="cut" controls>
+			<source src="js/cut.ogg">
+			</source>
+		</audio>
+		<audio class="sound" id="ch" controls>
+			<source src="js/ch.ogg">
+			</source>
+		</audio>
+		<div class="gf"></div>
+		<div class="gc">
+			<div id="container">
+				<div id="cubeg">
+					<div class="top"></div>
+					<div class="front"></div>
+					<div class="right"></div>
+					<div class="left"></div>
+					<div class="bottom"></div>
+					<div class="back"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="bf"></div>
+		<div class="bc">
+			<div id="container">
+				<div id="cubeb">
+					<div class="top"></div>
+					<div class="front"></div>
+					<div class="right"></div>
+					<div class="left"></div>
+					<div class="bottom"></div>
+					<div class="back"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		<img class="tt" src="css/bb.png" width="685" height="685" alt="gh" />
+
+		<div class="GG GP" id="G1" style="top:13.5%; left:68.8%;" data-step="0" data-gc="1" data-top="13.5%"
+			data-left="68.8%">
+			<div class="Y"></div>
+		</div>
+		<div class="GG GP" id="G2" style="top:13.5%; left:80.8%;" data-step="0" data-gc="1" data-top="13.5%"
+			data-left="80.8%">
+			<div class="Y"></div>
+		</div>
+		<div class="GG GP" id="G3" style="top:25%; left:68.8%;" data-step="0" data-gc="1" data-top="25%"
+			data-left="68.8%">
+			<div class="Y"></div>
+		</div>
+		<div class="GG GP" id="G4" style="top:25%; left:80.8%;" data-step="0" data-gc="1" data-top="25%"
+			data-left="80.8%">
+			<div class="Y"></div>
+		</div>
+
+		<div class="GG BP" id="B1" style="top:73%; left:9%;" data-step="0" data-on="1" data-top="73%" data-left="9%">
+			<div class="R"></div>
+		</div>
+		<div class="GG BP" id="B2" style="top:85%; left:9%;" data-step="0" data-on="1" data-top="85%" data-left="9%">
+			<div class="R"></div>
+		</div>
+		<div class="GG BP" id="B3" style="top:73%; left:21%;" data-step="0" data-on="1" data-top="73%" data-left="21%">
+			<div class="R"></div>
+		</div>
+		<div class="GG BP" id="B4" style="top:85%; left:21%;" data-step="0" data-on="1" data-top="85%" data-left="21%">
+			<div class="R"></div>
+		</div>
+
+
+		<div class="cells B14 G40" style="top: 40%;" data-bc="0" data-gc="0" data-p1="none" data-top="42.5%"
+			data-left="-2%" data-pos="P14">14</div>
+		<div class="cells g-start B15 G41" style="top: 40%;left:6.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="42.5%" data-left="5%" data-pos="P15">15</div>
+		<div class="cells B16 G42" style="top: 40%;left:13.32%;" data-bc="0" data-gc="0" data-p1="none" data-top="42.5%"
+			data-left="11.5%" data-pos="P16">16</div>
+		<div class="cells B17 G43" style="top: 40%;left:19.98%;" data-bc="0" data-gc="0" data-p1="none" data-top="42.5%"
+			data-left="18%" data-pos="P17">17</div>
+		<div class="cells B18 G44" style="top: 40%;left:26.64%;" data-bc="0" data-gc="0" data-p1="none" data-top="42.5%"
+			data-left="24.8%" data-pos="P18">18</div>
+		<div class="cells B19 G45" style="top: 40%;left:33.3%;" data-bc="0" data-gc="0" data-p1="none" data-top="42.5%"
+			data-left="31.5%" data-pos="P19">19</div>
+
+
+
+
+		<div class="cells B25 G51" style="top: 0;left:40%;" data-bc="0" data-gc="0" data-p1="none" data-top="2.5%"
+			data-left="38%" data-pos="P25">25</div>
+		<div class="cells B24 G50" style="top: 6.66%;left:40%;" data-bc="0" data-gc="0" data-p1="none" data-top="9%"
+			data-left="38%" data-pos="P24">24</div>
+		<div class="cells safe B23 G49" style="top: 13.32%;left:40%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="15.5%" data-left="38%" data-pos="P23">23</div>
+		<div class="cells B22 G48" style="top: 19.98%;left:40%;" data-bc="0" data-gc="0" data-p1="none" data-top="22.5%"
+			data-left="38%" data-pos="P22">22</div>
+		<div class="cells B21 G47" style="top: 26.64%;left:40%;" data-bc="0" data-gc="0" data-p1="none" data-top="29%"
+			data-left="38%" data-pos="P21">21</div>
+		<div class="cells B20 G46" style="top: 33.3%;left:40%;" data-bc="0" data-gc="0" data-p1="none" data-top="36%"
+			data-left="38%" data-pos="P20">20</div>
+
+
+
+
+
+
+
+
+
+		<div class="cells B26 G52" style="top: 0;left:46.66%;" data-bc="0" data-gc="0" data-p1="none" data-top="2.5%"
+			data-left="44.5%" data-pos="P26">26</div>
+		<div class="cells R59 G53" style="top: 6.66%;left:46.66%;" data-bc="0" data-gc="0" data-p1="none" data-top="9%"
+			data-left="44.5%" data-pos="P59">59</div>
+		<div class="cells R60 G54" style="top: 13.32%;left:46.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="15.5%" data-left="44.5%" data-pos="P60">60</div>
+		<div class="cells yellow R61 G55" style="top: 19.98%;left:46.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="22.5%" data-left="44.5%" data-pos="P61">61</div>
+		<div class="cells yellow R62 G56" style="top: 26.64%;left:46.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="29%" data-left="44.5%" data-pos="P62">62</div>
+		<div class="cells yellow R63 G57" style="top: 33.3%;left:46.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="36%" data-left="44.5%" data-pos="P63">63</div>
+
+
+
+
+
+
+		<div class="cells B27 G1" style="top: 0;left:53.32%;" data-bc="0" data-gc="0" data-p1="none" data-top="2.5%"
+			data-left="51.5%" data-pos="P27">27</div>
+		<div class="cells y-start B28 G2" style="top: 6.66%;left:53.32%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="9%" data-left="51.5%" data-pos="P28">28</div>
+		<div class="cells B29 G3" style="top: 13.32%;left:53.32%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="15.5%" data-left="51.5%" data-pos="P29">29</div>
+		<div class="cells B30 G4" style="top: 19.98%;left:53.32%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="22.5%" data-left="51.5%" data-pos="P30">30</div>
+		<div class="cells B31 G5" style="top: 26.64%;left:53.32%;" data-bc="0" data-gc="0" data-p1="none" data-top="29%"
+			data-left="51.5%" data-pos="P31">31</div>
+		<div class="cells B32 G6" style="top: 33.3%;left:53.32%;" data-bc="0" data-gc="0" data-p1="none" data-top="36%"
+			data-left="51.5%" data-pos="P32">32</div>
+
+
+
+
+		<div class="cells B33 G7" style="top: 40%; right: 33.3%" data-bc="0" data-gc="0" data-p1="none" data-top="42.5%"
+			data-left="58%" data-pos="P33">33</div>
+		<div class="cells B34 G8" style="top: 40%;right:26.64%;" data-bc="0" data-gc="0" data-p1="none" data-top="42.5%"
+			data-left="65%" data-pos="P34">34</div>
+		<div class="cells B35 G9" style="top: 40%;right:19.98%;" data-bc="0" data-gc="0" data-p1="none" data-top="42.5%"
+			data-left="71.5%" data-pos="P35">35</div>
+		<div class="cells safe B36 G10" style="top: 40%;right:13.32%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="42.5%" data-left="78%" data-pos="P36">36</div>
+		<div class="cells B37 G11" style="top: 40%;right:6.66%;" data-bc="0" data-gc="0" data-p1="none" data-top="42.5%"
+			data-left="84.5%" data-pos="P37">37</div>
+		<div class="cells  B38 G12" style="top: 40%;right:0;" data-bc="0" data-gc="0" data-p1="none" data-top="42.5%"
+			data-left="91.5%" data-pos="P38">38</div>
+
+
+
+		<div class="cells blue R75" style="top: 46.66%; right: 33.3%" data-bc="0" data-gc="0" data-p1="none"
+			data-top="49%" data-left="58%" data-pos="P75">75</div>
+		<div class="cells blue R74" style="top: 46.66%;right:26.64%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="49%" data-left="65%" data-pos="P74">74</div>
+		<div class="cells blue R73" style="top: 46.66%;right:19.98%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="49%" data-left="71.5%" data-pos="P73">73</div>
+		<div class="cells blue R72" style="top: 46.66%;right:13.32%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="49%" data-left="78%" data-pos="P72">72</div>
+		<div class="cells blue R71" style="top: 46.66%;right:6.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="49%" data-left="84.5%" data-pos="P71">71</div>
+		<div class="cells B39 G13" style="top: 46.66%;right:0;" data-bc="0" data-gc="0" data-p1="none" data-top="49%"
+			data-left="91.5%" data-pos="P39">39</div>
+
+
+
+
+
+
+
+
+		<div class="cells B45 G19" style="top: 53.32%; right: 33.3%" data-bc="0" data-gc="0" data-p1="none"
+			data-p1="none" data-top="56%" data-left="58%" data-pos="P45">45</div>
+		<div class="cells B44 G18" style="top: 53.32%;right:26.64%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="56%" data-left="65%" data-pos="P44">44</div>
+		<div class="cells B43 G17" style="top: 53.32%;right:19.98%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="56%" data-left="71.5%" data-pos="P43">43</div>
+		<div class="cells B42 G16" style="top: 53.32%;right:13.32%;" data-bc="0" data-gc="0" data-p1="none" data-bc="0"
+			data-gc="0" data-p1="none" data-top="56%" data-left="78%" data-pos="P42">42</div>
+		<div class="cells b-start B41 G15" style="top: 53.32%;right:6.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-bc="0" data-gc="0" data-p1="none" data-top="56%" data-left="84.5%" data-pos="P41">41</div>
+		<div class="cells B40 G14" style="top: 53.32%;right:0;" data-bc="0" data-gc="0" data-p1="none" data-bc="0"
+			data-gc="0" data-p1="none" data-top="56%" data-left="91.5%" data-pos="P40">40</div>
+
+
+
+
+
+
+
+		<div class="cells B51 G25" style="bottom: 0;left:53.32%;" data-bc="0" data-gc="0" data-p1="none" data-bc="0"
+			data-gc="0" data-p1="none" data-top="96%" data-left="51.5%" data-pos="P51">51</div>
+		<div class="cells B50 G24" style="bottom: 6.66%;left:53.32%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="89%" data-left="51.5%" data-pos="P50">50</div>
+		<div class="cells safe B49 G23" style="bottom: 13.32%;left:53.32%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="82.5%" data-left="51.5%" data-pos="P49">49</div>
+		<div class="cells B48 G22" style="bottom: 19.98%;left:53.32%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="76%" data-left="51.5%" data-pos="P48">48</div>
+		<div class="cells B47 G21" style="bottom: 26.64%;left:53.32%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="69%" data-left="51.5%" data-pos="P47">47</div>
+		<div class="cells B46 G20" style="bottom: 33.3%;left:53.32%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="62.5%" data-left="51.5%" data-pos="P46">46</div>
+
+
+
+
+
+		<div class="cells B52 G26" style="bottom: 0;left:46.66%;" data-bc="0" data-gc="0" data-p1="none" data-top="96%"
+			data-left="44.5%" data-pos="P52">52</div>
+		<div class="cells red B53" style="bottom: 6.66%;left:46.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="89%" data-left="44.5%" data-pos="P53">53</div>
+		<div class="cells red B54" style="bottom: 13.32%;left:46.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="82.5%" data-left="44.5%" data-pos="P54">54</div>
+		<div class="cells red B55" style="bottom: 19.98%;left:46.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="76%" data-left="44.5%" data-pos="P55">55</div>
+		<div class="cells red B56" style="bottom: 26.64%;left:46.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="69%" data-left="44.5%" data-pos="P56">56</div>
+		<div class="cells red B57" style="bottom: 33.3%;left:46.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="62.5%" data-left="44.5%" data-pos="P57">57</div>
+
+		<div class="cells B58" style="bottom: 40.5%;left:46.66%;" data-bc="0" data-gc="0" data-p1="none" data-top="55%"
+			data-left="44.5%" data-pos="P58">58</div>
+
+		<div class="cells R76 red G58" style="bottom: 52.5%;left:46.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="43%" data-left="44.5%" data-pos="P58">64</div>
+
+
+
+		<div class="cells B1 G27" style="bottom: 0;left:40%;" data-bc="0" data-gc="0" data-p1="none" data-top="96%"
+			data-left="38%" data-pos="P1">1</div>
+		<div class="cells B2 r-start G28" style="bottom: 6.66%;left:40%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="89%" data-left="38%" data-pos="P2">2</div>
+		<div class="cells B3 G29" style="bottom: 13.32%;left:40%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="82.5%" data-left="38%" data-pos="P3">3</div>
+		<div class="cells B4 G30" style="bottom: 19.98%;left:40%;" data-bc="0" data-gc="0" data-p1="none" data-top="76%"
+			data-left="38%" data-pos="P4">4</div>
+		<div class="cells B5 G31" style="bottom: 26.64%;left:40%;" data-bc="0" data-gc="0" data-p1="none" data-top="69%"
+			data-left="38%" data-pos="P5">5</div>
+		<div class="cells B6 G32" style="bottom: 33.3%;left:40%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="62.5%" data-left="38%" data-pos="P6">6</div>
+
+
+
+
+		<div class="cells B7 G33" style="top: 53.32%; left: 33.3%" data-bc="0" data-gc="0" data-p1="none" data-top="56%"
+			data-left="31.5%" data-pos="P7">7</div>
+		<div class="cells B8 G34" style="top: 53.32%;left:26.64%;" data-bc="0" data-gc="0" data-p1="none" data-top="56%"
+			data-left="24.8%" data-pos="P8">8</div>
+		<div class="cells B9 G35" style="top: 53.32%;left:19.98%;" data-bc="0" data-gc="0" data-p1="none" data-top="56%"
+			data-left="18%" data-pos="P9">9</div>
+		<div class="cells B10 safe G36" style="top: 53.32%;left:13.32%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="56%" data-left="11.5%" data-pos="P10">10</div>
+		<div class="cells B11 G37" style="top: 53.32%;left:6.66%;" data-bc="0" data-gc="0" data-p1="none" data-top="56%"
+			data-left="5%" data-pos="P11">11</div>
+		<div class="cells B12 G38" style="top: 53.32%;left:0;" data-bc="0" data-gc="0" data-p1="none" data-top="56%"
+			data-left="-2%" data-pos="P12">12</div>
+
+
+
+		<div class="cells green B69" style="top: 46.66%;left: 33.3%" data-bc="0" data-gc="0" data-p1="none"
+			data-top="49%" data-left="31.5%" data-pos="P69">69</div>
+		<div class="cells green B68" style="top: 46.66%;left:26.64%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="49%" data-left="24.5%" data-pos="P68">68</div>
+		<div class="cells green B67" style="top: 46.66%;left:19.98%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="49%" data-left="18%" data-pos="P67">67</div>
+		<div class="cells green B66" style="top: 46.66%;left:13.32%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="49%" data-left="11.5%" data-pos="P66">66</div>
+		<div class="cells green B65" style="top: 46.66%;left:6.66%;" data-bc="0" data-gc="0" data-p1="none"
+			data-top="49%" data-left="5%" data-pos="P65">65</div>
+		<div class="cells B13 G39" style="top: 46.66%;left:0;" data-bc="0" data-gc="0" data-p1="none" data-top="49%"
+			data-left="-2%" data-pos="P13">13</div>
+
+
+
+	</div>
+
+
+	<script src="js/scripts.js"></script>
+
+</body>
+
+</html>
